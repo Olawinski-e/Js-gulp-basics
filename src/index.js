@@ -117,9 +117,9 @@
 // );
 // console.log(h);
 
-// * PART. ======== VAR vs LET
-let x = 0;
-var y = 0;
+// * PART.6 ======== VAR vs LET
+// let x = 0;
+// var y = 0;
 // function start() {
 //   for (var i = 0; i < 5; i++) {
 //     console.log(i);
@@ -127,15 +127,133 @@ var y = 0;
 //   console.log(i);
 // }
 //start(); //1 2 3 4 5
+// function start() {
+//   for (let i = 0; i < 5; i++) {
+//     console.log(i);
+//   }
+//   console.log(i);
+// }
+// start(); //1 2 3 4 error (i not defined)
+// ! var => function-scoped
+// ! let, const => block-scoped
+// function start() {
+//   for (var i = 0; i < 5; i++) {
+//     if (true) {
+//       var color = "red";
+//     }
+//     console.log(color);
+//   }
+// }
+// start(); // red
+// var color = "blue";
+// let age = 30;
+// function sayHi() {
+//   console.log("hi");
+// }
+
+// * PART.7 ======== VALUE vs REFERENCE
+// let x = 10;
+// let y = x;
+// x = 20;
+// console.log(x, y); // 20, 10
+// let x = { value: 10 };
+// let y = x;
+// x.value = 20;
+// y.value = 3;
+// console.log(x, y); //{value: 3} {value: 3}
+// ! Primitives are copied by their value
+// ! Objects are copied by their reference
+// let number = 10;
+// function increase(number) {
+//   return number++;
+// }
+// increase(number);
+// console.log(increase(number)); //10
+// let obj = { value: 10 };
+// function increase(obj) {
+//   return obj.value++;
+// }
+// increase(obj);
+// console.log(obj); // { value: 11 }
+
+// * PART.8 ======== TEMPLATE LITERALS
+// const message1 = "This is my\nfirst message";
+// const message2 = "This is my\n" + '"first" message';
+// console.log(message2);
+// let name = "Estelle";
+// let number = 22;
+// let nn = "";
+// let lastDigit = +number.toString().split("").pop();
+// function findTheNN(lastDigit) {
+//   if (lastDigit == 1) {
+//     nn = "st";
+//   } else if (lastDigit === 2) {
+//     nn = "nd";
+//   } else if (lastDigit === 3) {
+//     nn = "rd";
+//   } else nn = "th";
+// }
+// findTheNN(lastDigit);
+// const another = `Hello ${name}
+// I am the ${number}${nn} message`;
+// console.log(another);
+
+// * PART.9 ======== THIS
+// ! Object executing the current function
+// ! method => obj
+// const video = {
+//   title: "a",
+//   play() {
+//     console.log(this);
+//   },
+// };
+// video.stop = function () {
+//   console.log(this);
+// };
+// video.play();
+// ! function => global (window, global)
+// const video = {
+//   title: "a",
+//   play() {
+//     console.log(this);
+//   },
+// };
+// function Video(title) {
+//   this.title = title;
+// }
+
+//const v = new Video("b"); // {}
+// const video = {
+//   title: "bblablaba",
+//   tags: ["a", "b", "c"],
+//   showTags() {
+//     this.tags.forEach((tag) => {
+//       console.log("title:", this.title, "tag:", tag);
+//     });
+//   },
+// };
+// video.showTags(); //title: bblablaba tag: a //title: bblablaba tag: b //title: bblablaba tag: c
+
+// * PART.10 ======== LOCAL vs GLOBAL SCOPE
+const message = "hello";
 function start() {
-  for (let i = 0; i < 5; i++) {
-    console.log(i);
+  const hy = "hi";
+  const message = "byebye";
+
+  if (true) {
+    const another = "bye";
   }
-  console.log(i);
+
+  for (i = 0; i < 5; i++) {
+    console.log(i, message);
+  }
 }
-start(); //1 2 3 4 error (i not defined)
-// var => function-scoped
-// let, const => block-scoped
+function stop() {
+  const message = "bye";
+}
+console.log(message);
+start();
+stop();
 
 // * PART. ======== FACTORIES
 // const circle = {
