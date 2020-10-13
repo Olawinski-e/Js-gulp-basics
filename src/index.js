@@ -1,50 +1,164 @@
-let name = "Est";
-console.log(name);
+// * PART.1 ======== IF ELSE
+// let hour = 3;
+// if (hour > 6 && hour < 12) {
+//   console.log("Good morning!");
+// } else if (hour >= 12 && hour < 18) {
+//   console.log("Good afternoon!");
+// } else {
+//   console.log("Good evening!");
+// }
 
-const interestRate = 0.3;
-console.log(interestRate);
+// * PART.2 ======== LOOPS
+// ? FOR
+// for (let i = 0; i <= 5; i++) {
+//   if (i % 2 === 0) {
+//     console.log("even", i);
+//   } else console.log("odd", i);
+// }
+// ? WHILE
+// let i = 0;
+// while (i <= 5) {
+//   i++;
+//   if (i % 2 === 0) {
+//     console.log("even", i);
+//   } else console.log("odd", i);
+// }
+// ? DO WHILE
+// let i = 0;
+// do {
+//   i++;
+//   if (i % 2 === 0) {
+//     console.log("even", i);
+//   } else console.log("odd", i);
+// } while (i < 5);
+// ? FOR IN
+// let obj = { a: 1, b: 2, c: 3 };
+// for (let el in obj) {
+//   console.log(`obj.${el} = value.${obj[el]}`);
+// }
+// ? FOR OF
+// let arr = ["a", "b", "c"];
+// for (let value of arr) {
+//   console.log("value", value);
+// }
 
-let age = 29;
-let person = {
-  name: "Est",
-  age: 29,
-};
+// * PART.3 ======== STRING
+// const message = " Hi  ! ' \n heeeeyyyy";
+// const another = new String("hello  j");
+// console.log(
+//   message.length,
+//   message[1],
+//   another,
+//   another.includes("l"),
+//   message.startsWith("i"),
+//   message.endsWith("i"),
+//   message.toUpperCase(),
+//   another.indexOf("o"),
+//   message.replace("!", "   !no one!"),
+//   message.trim(),
+//   message.split(" ")
+// );
 
-person.name = "Estelle";
-person.day = "sunday";
+// * PART.4 ======== FUNCTION
+// function greet(firstName, lastName) {
+//   console.log("Hello " + firstName + " " + lastName);
+// }
+// greet("Estelle", "O");
 
-person["name"] = "Max";
-person["number"] = 7;
+// * PART.5 ======== ARRAY
+// let selectedColor = ["silver", "pink"];
+// selectedColor[2] = "blue";
+// console.log(selectedColor.length);
 
-console.log(person);
+// ? ARRAY.filter()
+// const numbers = [1, -1, 2, 6];
+// const filtered = numbers.filter((n) => n >= 0);
+// console.log(filtered);
+// const restaurants = [
+//   { id: 1, category: "seafood" },
+//   { id: 2, category: "italian" },
+//   { id: 3, category: "korean" },
+//   { id: 4, category: "mexican" },
+//   { id: 5, category: "italian" },
+//   { id: 6, category: "korean" },
+// ];
+// const filtered = restaurants.filter((n) => n["category"] === "korean");
+// console.log(filtered);
 
-let selectedNumbers = [6, 2, 5];
+// ? ARRAY.map()
+// const numbers = [1, -1, 2, 6];
+// const filtered = numbers.filter((n) => n >= 0);
+//  const items = filtered.map((n) => "<li>" + n + "</li>");
+//  const html = "<ul>" + items.join("") + "</ul>";
+//  console.log(html);
+// const itemks = filtered.map((n) => ({
+//   value: n,
+// }));
+// console.log(itemks);
+// const numb = [1, -1, 2, 6];
+// const elem = numb
+//   .filter((n) => n >= 0)
+//   .map((n) => ({
+//     value: n,
+//   }))
+//   .filter((obj) => obj.value > 1)
+//   .map((obj) => obj.value);
+// console.log(elem);
 
-selectedNumbers.push(8);
-selectedNumbers[2] = 6;
+// ? ARRAY.reduce()
+// const numb = [1, -1, 2, 6];
+// let sum = 0;
+// for (let n of numb) {
+//   sum += n;
+// }
+// console.log(sum);
+// const h = numb.reduce(
+//   (accumulator, currentValue) => (accumulator += currentValue)
+// );
+// console.log(h);
 
-let m = [];
-for (let number of selectedNumbers) {
-  console.log(number);
-  m.push(number + "missisipi");
-}
-
-console.log("length :", selectedNumbers.length);
-console.log(m);
-
-function greet(name, lastName) {
-  if (lastName != undefined) {
-    console.log("Hello " + name + " & " + lastName);
-  } else {
-    console.log("Bye " + name);
+// * PART. ======== VAR vs LET
+let x = 0;
+var y = 0;
+// function start() {
+//   for (var i = 0; i < 5; i++) {
+//     console.log(i);
+//   }
+//   console.log(i);
+// }
+//start(); //1 2 3 4 5
+function start() {
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
   }
+  console.log(i);
 }
+start(); //1 2 3 4 error (i not defined)
+// var => function-scoped
+// let, const => block-scoped
 
-greet("Estelle", "Yann");
-greet("Maxi");
+// * PART. ======== FACTORIES
+// const circle = {
+//   radius: 1,
+//   location: {
+//     x: 1,
+//     y: 1
+//   },
 
-function square(number) {
-  return number * number;
-}
+//   isVisible: true,
+//   draw: function () {
+//   console.log('draw')
+//   }
+// },
+// const circle2 = {
+//   radius: 1,
+//   location: {
+//     x: 1,
+//     y: 1
+//   },
 
-console.log(square(2));
+//   isVisible: true,
+//   draw: function () {
+//   console.log('draw')
+//   }
+// },
