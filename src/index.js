@@ -235,48 +235,82 @@
 // video.showTags(); //title: bblablaba tag: a //title: bblablaba tag: b //title: bblablaba tag: c
 
 // * PART.10 ======== LOCAL vs GLOBAL SCOPE
-const message = "hello";
-function start() {
-  const hy = "hi";
-  const message = "byebye";
+// const message = "hello";
+// function start() {
+//   const hy = "hi";
+//   const message = "byebye";
 
-  if (true) {
-    const another = "bye";
-  }
+//   if (true) {
+//     const another = "bye";
+//   }
 
-  for (i = 0; i < 5; i++) {
-    console.log(i, message);
-  }
-}
-function stop() {
-  const message = "bye";
-}
-console.log(message);
-start();
-stop();
+//   for (i = 0; i < 5; i++) {
+//     console.log(i, message);
+//   }
+// }
+// function stop() {
+//   const message = "bye";
+// }
+// console.log(message);
+// start();
+// stop();
 
-// * PART. ======== FACTORIES
+// * PART.11 ======== GETTERS SETTERS
+// const person = {
+//   firstName: "Estelle",
+//   lastName: "O",
+//   get fullName() {
+//     return `${person.firstName} ${person["lastName"]}`;
+//   },
+//   set fullName(value) {
+//     const parts = value.split(" ");
+//     this.firstName = parts[0];
+//     this.lastName = parts[1];
+//   },
+// };
+// person.fullName = "John Smith"; //firstName: "John" //fullName: "John Smith" //lastName: "Smith"
+// console.log(person);
+// ! getters => access properties
+// ! setters => change (mutate) them
+
+// * PART.12 ======== CLONING AN OBJECT
 // const circle = {
 //   radius: 1,
-//   location: {
-//     x: 1,
-//     y: 1
+//   draw() {
+//     console.log("draw");
 //   },
+// };
+// const another = {};
+// for (let key in circle) {
+//   another[key] = circle[key];
+// }
+// another["radius"] = circle["radius"];
+// console.log(another.draw()); // draw
+// const another = Object.assign({ color: "green" }, circle);
+// const another = { ...circle };
+// console.log(another);
 
-//   isVisible: true,
-//   draw: function () {
-//   console.log('draw')
-//   }
-// },
+// * PART.13 ======== FACTORIES
 // const circle2 = {
 //   radius: 1,
 //   location: {
 //     x: 1,
-//     y: 1
+//     y: 1,
 //   },
-
 //   isVisible: true,
-//   draw: function () {
-//   console.log('draw')
-//   }
-// },
+//   draw() {
+//     console.log("draw");
+//   },
+// };
+// Factory function
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("draw");
+    },
+  };
+}
+const circle1 = createCircle(1);
+const circle2 = createCircle(2);
+console.log(circle1, circle2);
